@@ -41,9 +41,10 @@ public class FileStorage {
         return Files.readAllBytes(path);
     }
 
-    public static void deleteImage(String filePath, String directory) throws IOException {
+    public static String deleteImage(String filePath, String directory) throws IOException {
         Path path = getPath(filePath, directory);
         Files.deleteIfExists(path);
+        return path.toFile().getAbsolutePath();
     }
 
     public static String updateImage(String filePath, String directory, MultipartFile profile) throws IOException {
