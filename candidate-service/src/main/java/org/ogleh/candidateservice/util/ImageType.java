@@ -1,7 +1,7 @@
 package org.ogleh.candidateservice.util;
 
 public enum ImageType {
-    CANDIDATE_PROFILE("image/profile/"),
+    CANDIDATE_PROFILE("candidate/image/profile/"),
     PARTY_FLAG("image/flag/"),
     CAMPAIGN_IMAGE("image/campaign/");
 

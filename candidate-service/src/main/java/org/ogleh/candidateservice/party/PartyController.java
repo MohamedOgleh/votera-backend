@@ -22,6 +22,11 @@ public class PartyController {
         return Response.successResponse(partyService.updateParty(partyId, request));
     }
 
+    @PutMapping("/{partyId}/{candidateID}")
+    public ResponseEntity<?> updateParty(@PathVariable int partyId, @PathVariable("candidateID") int candidateID) {
+        return Response.successResponse(partyService.setPartyCandidate(partyId, candidateID));
+    }
+
     @PutMapping("/add/profile/{partyId}")
     public ResponseEntity<?> addProfile(@PathVariable int partyId, @RequestParam("profile") MultipartFile profile) {
         return Response.successResponse(partyService.updateProfile(partyId, profile));

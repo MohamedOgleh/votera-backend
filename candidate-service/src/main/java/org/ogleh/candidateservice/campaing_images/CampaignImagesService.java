@@ -75,9 +75,7 @@ public class CampaignImagesService {
 
     public Resource getCampaignImage(String campaignImageUrl) {
         try {
-//            CampaignImages campaignImages = findCampaignImageById(campaignImageId);
-            final Path rootLocation = Paths.get(CAM_DIR);
-            Path path = rootLocation.resolve(campaignImageUrl);
+            Path path = Paths.get(CAM_DIR).resolve(campaignImageUrl);
             return new UrlResource(path.toUri());
         } catch (DataAccessException e) {
             throw new ApiException(e.getMessage());

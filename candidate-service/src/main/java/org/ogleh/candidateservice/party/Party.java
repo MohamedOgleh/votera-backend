@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.ogleh.candidateservice.campaing_images.CampaignImages;
+import org.ogleh.candidateservice.candidate.Candidate;
 
 import java.util.List;
 
@@ -24,4 +25,6 @@ public class Party {
     @JoinColumn(name = "party_id")
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     private List<CampaignImages> campaignImages;
+    @OneToOne
+    private Candidate candidate;
 }

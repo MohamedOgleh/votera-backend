@@ -8,6 +8,7 @@ import static org.ogleh.candidateservice.util.BuildUri.changeImageToUriLocator;
 public class PartyMapper {
 
     public static PartyDto toPartyDto(Party party) {
+
         return PartyDto.builder()
                 .partyId(party.getPartyId())
                 .partyName(party.getPartyName())
@@ -15,6 +16,10 @@ public class PartyMapper {
                 .partyFlag(party.getPartyFlag() != null && !party.getPartyFlag().equals("NAN")
                         ? changeImageToUriLocator(ImageType.PARTY_FLAG.getType(), party.getPartyFlag())
                         : party.getPartyFlag())
+                .candidateId(party.getCandidate() == null ? 0 : party.getCandidate().getId())
+                .candidateName(party.getCandidate() == null ? "NAN" : party.getCandidate().getFullName())
+                .candidateNickName(party.getCandidate() == null ? "NAN" : party.getCandidate().getNickName())
+                .candidateProfile(party.getCandidate() == null ? "NAN" : changeImageToUriLocator(ImageType.CANDIDATE_PROFILE.getType(), party.getCandidate().getProfilePicture()))
                 .campaignImages(party.getCampaignImages().stream().map(CampaignImageMapper::toCampaignImagesDto).toList())
                 .build();
     }

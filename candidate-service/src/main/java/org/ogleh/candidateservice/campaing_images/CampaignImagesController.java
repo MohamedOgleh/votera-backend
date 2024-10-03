@@ -38,16 +38,4 @@ public class CampaignImagesController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
-
-//    @GetMapping("/{camImageId}")
-//    public ResponseEntity<Resource> getCampaignImage(@PathVariable int camImageId) {
-//        Resource resource = campaignImagesService.getCampaignImage(camImageId);
-//        if (resource.exists()) {
-//            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
-//        } else {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-//        }
-//    }
-
-
 }
